@@ -40,7 +40,8 @@
                     <div class="mx-auto text-center">
                         <h1 class="mx-auto my-0"><small>Quote of the Day:</small></h1>
                         <h2 id="quote" class="text-white-50 mx-auto mt-2 mb-5">“Waste no more time arguing about what a good man should be. Be one.”<br>-Marcus Aurelius</h2>
-                        <a class="btn btn-primary js-scroll-trigger" href="#about">Get Started</a>
+<!--                            “Waste no more time arguing about what a good man should be. Be one.”<br>-Marcus Aurelius</h2>-->
+                        <a class="btn btn-primary" onclick="newQuote()" id="test2">New Quote</a>
                     </div>
                 </div>
             </header>
@@ -142,6 +143,18 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
             <!-- Core theme JS-->
             <script src="/static/js/scripts.js"></script>
+            <script>
+            function newQuote() {
+                var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange=function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("quote").innerHTML = this.responseText;
+                            }
+                        };
+                    xhttp.open("GET", "http://127.0.0.1:8000/quote", true);
+                    xhttp.send();
+            }
+            </script>
             <script>
                 $(document).ready(function(){
                 $("#quote").hide().fadeIn(15000, function() {
