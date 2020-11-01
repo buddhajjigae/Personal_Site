@@ -52,12 +52,12 @@
                         <div class="col-lg-8 mx-auto">
                             <h2 class="text-white mb-4">About</h2>
                             <p class="text-white-50">
-                                My name is Alex Yu and I am currently a student at Columbia University and am graduating in December 2020 with a Bachelor of Arts in Philosophy
+                                Hey there! I'm Alex Yu and I'm currently a student at Columbia University and I'm graduating in December 2020 with a Bachelor of Arts in Philosophy
                                 and a Concentration in Computer Science. <br>
                                 <br>
-                                I created this website to try and learn JavaScript, Flask, BootStrap and HTML/CSS.<br>
+                                I created this website to try and learn JavaScript, Flask, BootStrap and HTML/CSS and it seems to be going well.<br>
                                 <br>
-                                Please click Contact in the navigation bar or scroll below to send me comments or questions. Thank you.
+                                Please click Contact in the navigation bar or scroll below to send me comments or questions through email. Hope you enjoyed this site.
                             </p>
                         </div>
                     </div>
@@ -148,7 +148,8 @@
                 var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange=function() {
                         if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("quote").innerHTML = this.responseText;
+                            var myObj = JSON.parse(this.responseText);
+                            document.getElementById("quote").innerHTML = myObj.quote + "<br> -" + myObj.author;
                             }
                         };
                     xhttp.open("GET", "http://127.0.0.1:8000/quote", true);
