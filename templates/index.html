@@ -13,7 +13,7 @@
             <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
             <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
             <!-- Core theme CSS (includes Bootstrap)-->
-            <link href="/static/css/styles.css" rel="stylesheet" />
+            <link href="/static/css/styles.css?version=1.6" rel="stylesheet" />
         </head>
         <body id="page-top">
             <!-- Navigation-->
@@ -40,7 +40,7 @@
                     <div class="mx-auto text-center">
                         <h1 class="mx-auto my-0"><small>Food for thought:</small></h1>
                         <br>
-                        <h2 id="quote" class="text-white-50 mx-auto mt-2 mb-5">“Waste no more time arguing about what a good man should be. Be one.”<br>-Marcus Aurelius</h2>
+                        <h2 id="quote" class="text-white-50 mx-auto mt-2 mb-5"></h2>
                         <a class="btn btn-primary" onclick="newQuote()">New Quote</a>
                     </div>
                 </div>
@@ -67,6 +67,8 @@
             <!-- Projects-->
             <section class="projects-section bg-light" id="projects">
                 <div class="container">
+                    <p style="font-size: 2.5em; text-align: center; margin-top: -100px;"><strong>Projects</strong></p>
+                    <br>
                     <!-- Featured Project Row-->
                     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
                         <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="/static/img/site-homepage.jpg" alt="" /></div>
@@ -167,8 +169,8 @@
                         var myObj = JSON.parse(this.responseText);
 
                         $("#quote").fadeOut(1000, "swing", function() {
-                            document.getElementById("quote").innerHTML = myObj.quote + "<br>   -" + myObj.author;
-                            $("#quote").fadeIn(1000, "swing");
+                            document.getElementById("quote").innerHTML = myObj.quote + "<br><p>-" + myObj.author + "</p>";
+                            $("#quote").fadeIn(1500, "linear");
                         } );
                     }
                 };
@@ -178,7 +180,7 @@
             </script>
             <script>
                 $(document).ready(function(){
-                $("#quote").hide().fadeIn(1500, "swing");
+                newQuote();
                 });
             </script>
         </body>
