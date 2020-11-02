@@ -17,14 +17,13 @@ import logging
 from datetime import datetime
 from flask import Flask, render_template, Response, jsonify, url_for
 from flask_sqlalchemy import SQLAlchemy
-#from flask_marshmallow import Marshmallow
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 application = Flask(__name__)
-application.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://name:pw@url/dbname'
+application.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://user:pw@url/dbname'
 db = SQLAlchemy(application)
 
 
@@ -79,15 +78,12 @@ def log_response(method, status, data, txt):
 def index():
     return render_template('index.html')
 
-
 @application.route("/quote", methods=["GET"])
 def getQuote():
     sql = "SELECT author, quote FROM quotes ORDER BY RAND() LIMIT 1"
     result = db.engine.execute(sql)
     dictList = [dict(row) for row in result]
-    quoteStr = json.dumps(dictList[0])
-    quoteDict = json.loads(quoteStr)
-    rsp = Response(json.dumps(quoteDict), status=200, content_type="application/json")
+    rsp = Response(json.dumps(dictList[0]), status=200, content_type="application/json")
     return rsp
 
 # Run the app.
