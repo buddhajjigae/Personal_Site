@@ -6,7 +6,7 @@
             <meta name="description" content="Personal Website" />
             <meta name="author" content="Alex Yu" />
             <title>Alex Yu's Personal Website</title>
-            <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico" />
             <!-- Font Awesome icons (free version)-->
             <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
             <!-- Google fonts-->
@@ -38,10 +38,10 @@
             <header class="masthead">
                 <div class="container d-flex h-100 align-items-center">
                     <div class="mx-auto text-center">
-                        <h1 class="mx-auto my-0"><small>Quote of the Day:</small></h1>
+                        <h1 class="mx-auto my-0"><small>Food for thought:</small></h1>
+                        <br>
                         <h2 id="quote" class="text-white-50 mx-auto mt-2 mb-5">“Waste no more time arguing about what a good man should be. Be one.”<br>-Marcus Aurelius</h2>
-<!--                            “Waste no more time arguing about what a good man should be. Be one.”<br>-Marcus Aurelius</h2>-->
-                        <a class="btn btn-primary" onclick="newQuote()" id="test2">New Quote</a>
+                        <a class="btn btn-primary" onclick="newQuote()">New Quote</a>
                     </div>
                 </div>
             </header>
@@ -50,9 +50,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
-                            <h2 class="text-white mb-4">About</h2>
+                            <h2 class="text-white mb-4">About Me</h2>
                             <p class="text-white-50">
-                                Hey there! I'm Alex Yu and I'm currently a student at Columbia University and I'm graduating in December 2020 with a Bachelor of Arts in Philosophy
+                                I'm Alex Yu and I'm currently a student at Columbia University and I'm graduating in December 2020 with a Bachelor of Arts in Philosophy
                                 and a Concentration in Computer Science. <br>
                                 <br>
                                 I created this website to try and learn JavaScript, Flask, BootStrap and HTML/CSS and it seems to be going well.<br>
@@ -69,23 +69,35 @@
                 <div class="container">
                     <!-- Featured Project Row-->
                     <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-                        <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="/static/assets/img/bg-masthead.jpg" alt="" /></div>
+                        <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="/static/img/site-homepage.jpg" alt="" /></div>
                         <div class="col-xl-4 col-lg-5">
                             <div class="featured-text text-center text-lg-left">
-                                <h4>Shoreline</h4>
-                                <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
+                                <h4>About This Site</h4>
+                                <p class="text-black-50 mb-0">The backend was programmed using Python and the Flask framework.<br><br>
+                                    The quote button retrieves a random quote and author from a MySQL database hosted on AWS RDS using
+                                    SQLAlchemy.<br><br>
+                                    The template, provided by Start Boostrap, was modified to my needs with HTML/CSS
+                                    modifications.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <!-- Project One Row-->
                     <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                        <div class="col-lg-6"><img class="img-fluid" src="/static/assets/img/demo-image-01.jpg" alt="" /></div>
+                        <div class="col-lg-6"><br><br><br><img class="img-fluid mb-3 mb-lg-0" src="/static/img/dirk-fadeaway.jpg" alt="" /></div>
                         <div class="col-lg-6">
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
                                     <div class="project-text w-100 my-auto text-center text-lg-left">
-                                        <h4 class="text-white">Misty</h4>
-                                        <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                        <h4 class="text-white">NBA Scraper</h4>
+                                        <p class="mb-0 text-white-50">I am currently working on a full stack web application involving current NBA player statistics.<br>
+                                            <br>The data is scraped from <a href="https://www.basketball-reference.com/">basketball-reference.com</a> using
+                                            Python and then added to a MySQL database hosted on AWS RDS. (Completed) <br>
+                                            <br>In Progress:
+                                            <br>
+                                            1. A website where users can select player's and find relevant statistics.<br>
+                                            2. Trivia game where random trivia questions about NBA statistics are asked and user's can select answers to earn points.
+                                        </p>
                                         <hr class="d-none d-lg-block mb-0 ml-0" />
                                     </div>
                                 </div>
@@ -99,9 +111,13 @@
                             <div class="bg-black text-center h-100 project">
                                 <div class="d-flex h-100">
                                     <div class="project-text w-100 my-auto text-center text-lg-right">
-                                        <h4 class="text-white">Mountains</h4>
-                                        <img src="https://github.com/buddhajjigae/Personal_Site/tree/e01e6ef03436779c56bdefb28c7f71a5ee7af6ef" alt="Name Your GitHub chart">
-                                        <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                                        <h4 class="text-white">Full Stack AWS Team Project</h4>
+                                        <p class="mb-0 text-white-50">I am currently working on a full stack team project with a team of 5 members. We plan on
+                                            using Docker, MySQL along with AWS services such as Beanstalk, ECS, EC2 and RDS (more services may be added).<br>
+                                            <br>
+                                            The project will be divided into microservices that interact with each other to create a web application.<br>
+                                            <br>It is currently in the early stages but once it is finished, a link to the web application will be added here.
+                                        </p>
                                         <hr class="d-none d-lg-block mb-0 mr-0" />
                                     </div>
                                 </div>
@@ -134,7 +150,7 @@
             </section>
             <!-- Footer-->
             <footer class="footer bg-black small text-center text-white-50"  id="links"><div class="container">Template provided by
-                <a href="https://startbootstrap.com">Start Bootstrap</a> • Hosted on AWS
+                <a href="https://startbootstrap.com">Start Bootstrap</a> • Hosted using AWS
                 <a href="https://aws.amazon.com/elasticbeanstalk/">Elastic Beanstalk</a></div></footer>
             <!-- Bootstrap core JS-->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -146,20 +162,23 @@
             <script>
             function newQuote() {
                 var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange=function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            var myObj = JSON.parse(this.responseText);
-                            document.getElementById("quote").innerHTML = myObj.quote + "<br> -" + myObj.author;
-                            }
-                        };
-                    xhttp.open("GET", "http://127.0.0.1:8000/quote", true);
-                    xhttp.send();
+                xhttp.onreadystatechange=function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myObj = JSON.parse(this.responseText);
+
+                        $("#quote").fadeOut(1000, "swing", function() {
+                            document.getElementById("quote").innerHTML = myObj.quote + "<br>   -" + myObj.author;
+                            $("#quote").fadeIn(1000, "swing");
+                        } );
+                    }
+                };
+                xhttp.open("GET", "quote", true);
+                xhttp.send();
             }
             </script>
             <script>
                 $(document).ready(function(){
-                $("#quote").hide().fadeIn(15000, function() {
-                    });
+                $("#quote").hide().fadeIn(1500, "swing");
                 });
             </script>
         </body>
