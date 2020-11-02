@@ -1,8 +1,5 @@
-import json
 import os
 import sys
-# import platform
-# import socket
 
 #from flask import Flask, Response
 from flask import request
@@ -14,18 +11,17 @@ sys.path.append(cwd)
 
 import json
 import logging
+import pymysql
 from datetime import datetime
-from flask import Flask, render_template, Response, jsonify, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, Response
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 application = Flask(__name__)
-application.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://user:pw@url/dbname'
-db = SQLAlchemy(application)
-
+conn = pymysql.connect("url", user="", port=, passwd="",db="")
+c = conn.cursor()
 
 # 1. Extract the input information from the requests object.
 # 2. Log the information
@@ -81,12 +77,12 @@ def index():
 @application.route("/quote", methods=["GET"])
 def getQuote():
     sql = "SELECT author, quote FROM quotes ORDER BY RAND() LIMIT 1"
-    result = db.engine.execute(sql)
-    dictList = [dict(row) for row in result]
-    rsp = Response(json.dumps(dictList[0]), status=200, content_type="application/json")
+    result = c.execute(sql)
+    ans = c.fetchall()
+    dict = {"author": ans[0][0], "quote": ans[0][1]}
+    rsp = Response(json.dumps(dict), status=200, content_type="application/json")
     return rsp
 
 # Run the app.
 if __name__ == "__main__":
-    db.init_app(application)
     application.run(port=8000)
