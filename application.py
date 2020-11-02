@@ -1,9 +1,6 @@
 import os
 import sys
 
-#from flask import Flask, Response
-from flask import request
-
 cwd = os.getcwd()
 sys.path.append(cwd)
 
@@ -13,7 +10,7 @@ import json
 import logging
 import pymysql
 from datetime import datetime
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger()
@@ -70,10 +67,12 @@ def log_response(method, status, data, txt):
 
     logger.debug(str(datetime.now()) + ": \n" + json.dumps(msg, indent=2, default=str))
 
+# Home page
 @application.route("/")
 def index():
     return render_template('index.html')
 
+# Get random quote from MySQL db on AWS
 @application.route("/quote", methods=["GET"])
 def getQuote():
     sql = "SELECT author, quote FROM quotes ORDER BY RAND() LIMIT 1"
