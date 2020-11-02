@@ -10246,8 +10246,12 @@ body {
           background-clip: text;
 }
 .masthead h2 {
+  min-height: 4rem;
   max-width: 20rem;
   font-size: 1rem;
+}
+.masthead p {
+  text-indent: 148px;
 }
 @media (min-width: 768px) {
   .masthead h1 {
@@ -10266,7 +10270,7 @@ body {
     letter-spacing: 0.8rem;
   }
   .masthead h2 {
-    max-width: 50rem;
+    max-width: 55rem;
     font-size: 1.4rem;
   }
 }
@@ -10308,7 +10312,7 @@ body {
 
 .signup-section {
   padding: 10rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("../assets/img/bg-signup.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("/static/img/bg-signup.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10326,6 +10330,11 @@ body {
 }
 
 .contact-section {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000000 100%), url("/static/img/bg-signup.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
   padding-top: 5rem;
 }
 .contact-section .card {
