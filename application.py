@@ -17,8 +17,6 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 application = Flask(__name__)
-conn = pymysql.connect("url", user="", port=, passwd="",db="")
-c = conn.cursor()
 
 # 1. Extract the input information from the requests object.
 # 2. Log the information
@@ -75,11 +73,17 @@ def index():
 # Get random quote from MySQL db on AWS
 @application.route("/quote", methods=["GET"])
 def getQuote():
+    conn = pymysql.connect("url", user="", port=, passwd="",db="")
+    c = conn.cursor()
+    
     sql = "SELECT author, quote FROM quotes ORDER BY RAND() LIMIT 1"
     result = c.execute(sql)
     ans = c.fetchall()
     dict = {"author": ans[0][0], "quote": ans[0][1]}
+    
     rsp = Response(json.dumps(dict), status=200, content_type="application/json")
+    c.close()
+    
     return rsp
 
 # Run the app.
